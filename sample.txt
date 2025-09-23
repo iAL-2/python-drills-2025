@@ -1,0 +1,37 @@
+Logic Block — One Page, Soup Only
+
+Goal: Fetch one page of quotes and save quote,author to quotes.csv.
+
+Input: start_url = "https://quotes.toscrape.com/"
+
+Output: CSV file with header quote,author.
+
+Flow:
+
+Fetch HTML → get the page’s HTML as a string.
+
+Parse with BeautifulSoup:
+
+For each div.quote, get:
+
+span.text → quote text (strip the fancy quotes).
+
+small.author → author name.
+
+Collect rows as list of dicts or tuples.
+
+Write CSV with your existing csv.writer.
+
+Invariant check: rows_written == len(rows).
+
+Edge cases:
+
+If fetch fails → print error, write header only, stop.
+
+If a quote block is missing fields → skip it.
+
+Tests:
+
+Smoke: On success, CSV exists, has header, and len(rows) > 0.
+
+Parser unit test: run parse_quotes() on a small saved HTML sample and assert expected pairs found.
