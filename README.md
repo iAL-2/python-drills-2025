@@ -5,8 +5,11 @@ Instead of relying on tutorials, I’m building recall and problem-solving skill
 writing small programs from scratch. 
 
 ⚡ Hours logged so far: 74.5 coding | 46 meta
-Meta-work hours are defined as time spent researching and understanding the field, tutorials, and anything else outside of raw coding.
+
 📅 Started: Aug 22, 2025
+
+Meta-work hours are defined as time spent researching and understanding the field, tutorials, and anything else outside of raw coding.
+
 
 Each file is a self-contained drill:
 - FizzBuzz variations
