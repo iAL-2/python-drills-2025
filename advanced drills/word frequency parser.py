@@ -1,4 +1,4 @@
-
+from paths import DATA_DIR
 # wordfreq.py
 import re
 import csv
@@ -334,8 +334,8 @@ def _write_csv(rows, outpath):
 def main():
 
     stringinput = False
-    inpath = "sample.txt" if not stringinput else "insert hardcode string here"
-    outpath = "letters_sorted.csv"
+    inpath = DATA_DIR/"sample.txt" if not stringinput else "insert hardcode string here"
+    outpath = DATA_DIR/"letters_sorted.csv"
 
     text = _read_text(inpath)
     token = _tokenize(text)

@@ -1,3 +1,5 @@
+from paths import DATA_DIR
+
 #html quote scraper
 import csv
 import requests
@@ -55,7 +57,7 @@ def write_csv(rows, out_path):
 
 def main():
      url = "https://quotes.toscrape.com/"
-     outcsv = "quotes.csv"
+     outcsv = DATA_DIR / "quotes.csv"
      html = fetch_html(url)
      if not html:
           write_csv([], outcsv)
