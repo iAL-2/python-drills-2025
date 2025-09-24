@@ -43,6 +43,12 @@ lislicing()
 num = {1,2,3,1,2,3,4,5,6,7,7,7,7}
 print(num)
 
+#using sets on a string to automatically drop duplicates. order not preserved
+def uniqueChars(text):
+    print(set(text))
+
+
+
 """dictionary practice"""
 superfruit = {}
 superfruit["apple"] = 2
@@ -53,6 +59,12 @@ d = {"a": 1, "b": 2}
 print(d.keys())    # dict_keys(['a','b'])
 print(d.values())  # dict_values([1,2])
 print(d.items())   # dict_items([('a',1),('b',2)])
+#dictionary method, only print out the keys not the values.
+def uniqueChars(text):
+    d = {}
+    for ch in text:
+        d[ch] = True
+    print("".join(d.keys()))
 
 
 
