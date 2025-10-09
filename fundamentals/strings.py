@@ -27,3 +27,19 @@ def reverse_string(s):
 
 
 print(reverse_string("hello"))
+
+#exercise 1
+def reverseString(s):
+    return s[::-1]
+
+#strip variation removes whitespace at ends, not inside
+def reverseString(text):
+    return text.strip().lower()[::-1]
+
+#variations that removes spaces and uses lowercase, good for setting up palindrome check
+def reverseString(s):
+    return s.replace(" ", "").lower()[::-1]
+
+def reverseStringClean(s):
+    cleaned = "".join(s.lower().split())  # remove spaces, lowercase
+    return cleaned[::-1]
