@@ -5,4 +5,5 @@
 3. **Days of Week** – `dict.get()` with string slicing and normalization
 4. **Letter Grades** - `dict.get()` variation with integer division
 5. **FizzBuzzMulti** - FizzBuzz variation with dict mapping using .items(). Explores difference in loop statements vs comprehension/generator expressions(comprehensive)
-6. **RomanNumerals** - 2 version, `dict.get()` for the basic, while advanced version uses a loopstatement with `divmod()` to cover from 1-3999 for roman numerals. Also explores the `"string"*integer` function of python
+6. **RomanNumerals** - Turns a number into roman equivalent. 2 versions, `dict.get()` for the basic, while advanced version uses a loopstatement with `divmod()` to cover from 1-3999 for roman numerals. Also explores the `"string"*integer` function of python. 
+7. **RomanNumeralsReversed** - Reads a roman numeral and turns it into an integer
