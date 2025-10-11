@@ -1,20 +1,19 @@
-# Drill: <Drill Name>
+# Drill: Letter Frequency Counter
 
 ## Description
-Briefly describe the goal of the drill.  
-Example: *Convert a number (1–12) into its month abbreviation using a dictionary lookup.*
+Count how many times each letter (a–z) appears in a given string.
 
-## Concept Practiced
-- What programming concept or pattern is being reinforced?  
-Example: Using a dictionary (`dict`) as a mapping table instead of chained `if/elif`.
+## Concepts Practiced
+- Character-level vs. word-level granularity  
+- Membership checking within a mapping (`if ch in dict`)  
+- Dictionary seeding for fixed keys
 
 ## Key Idioms
-- `dict.get(key, default)` for safe lookup  
-- Iterating with `for k, v in mapping.items()` (if relevant)  
-- Assigning new entries dynamically (if relevant)
+- `import string` → `string.ascii_lowercase` for alphabet generation  
+- `.lower()` for normalization  
+- `re.findall(r"[a-z]", text.lower())` for regex-based filtering
 
-## Why It Matters
-Explain in 2–3 sentences why this pattern is important in real coding.  
-Example: *Data-driven substitution keeps logic short and extensible, avoids branching, and makes rules easy to modify or scale.*
-
-## Sample Code
+## Notes
+- Both the regex and membership-check versions correctly ignore non-alphabetic characters.  
+- The optimized version removes regex overhead and uses `if ch in count:` to skip special characters and spaces.  
+- Pre-seeding ensures all 26 letters appear in the final dictionary, even if their count is zero.
