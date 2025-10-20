@@ -8,3 +8,4 @@
 6. **RomanNumerals** - Turns a number into roman equivalent. 2 versions, `dict.get()` for the basic, while advanced version uses a loopstatement with `divmod()` to cover from 1-3999 for roman numerals. Also explores the `"string"*integer` function of python. 
 7. **RomanNumeralsReversed** - Reads a roman numeral and turns it into an integer
 8. **WordFrequencyParser** - Counts how many times a word is in a string, creates a dictionary map. Introduces mapping accumulation pattern. Includes advanced pipeline version(comprehensive)
+9. **LetterFrequency** - Same concepts as word frequency but applied to letters. Includes membership validation method without regex.
