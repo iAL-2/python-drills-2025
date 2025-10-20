@@ -9,3 +9,4 @@
 7. **RomanNumeralsReversed** - Reads a roman numeral and turns it into an integer
 8. **WordFrequencyParser** - Counts how many times a word is in a string, creates a dictionary map. Introduces mapping accumulation pattern. Includes advanced pipeline version(comprehensive)
 9. **LetterFrequency** - Same concepts as word frequency but applied to letters. Includes membership validation method without regex.
+10. **GradeBook** - Introduces multi-value keys using `defaultdict()`, imported from `collections`, as well as `setdefault()`. These create lists within dictionaries.
