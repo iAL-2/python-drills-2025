@@ -1,5 +1,27 @@
+# --- VERSION 1: Counter-based pipeline -------------------
+
 import re
-from collections import defaultdict
+from collections import Counter
+import csv
+
+def tokenize(text):
+    return re.findall(r"\w+", text.lower())
+
+def wordfreq_pipeline(filepath, export_csv=None):
+    counter = Counter()
+    with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
+        for line in f:
+            counter.update(tokenize(line))
+    if export_csv:
+        with open(export_csv, "w", newline="", encoding="utf-8") as out:
+            writer = csv.writer(out)
+            writer.writerow(["word", "count"])
+            writer.writerows(counter.items())
+    return counter
+
+
+# --- VERSION 2: Manual dictionary pipeline ---------------
+import re
 import csv
 
 def readfile(inpath):
