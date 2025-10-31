@@ -24,7 +24,8 @@ def multi_sub(n, mapping=None):
         result.append(s or i)
     return result
 
-"""s += (word for div,word in mapping.items() if i % div == 0) doesn't work because:
+"""
+s += (word for div,word in mapping.items() if i % div == 0) doesn't work because:
 (word for div,word in mapping.items() if i % div == 0) is a generator expression. += expects a string or number
 """
 

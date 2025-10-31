@@ -9,4 +9,3 @@ def listWriter():
 
     for line in lines:
         print(line.strip().upper())
-
