@@ -57,7 +57,7 @@ def main():
     token = tokenize(text)
     count = counts(token)
 
-    rows = top_items(count)
+    rows = top_items(count, n)
     csvWriter(rows, outpath)
 
     print(f"Printed top {n} words to {outpath}")
