@@ -1,34 +1,38 @@
 import re
 import csv
 
-WORD_RE = re.compile(r"[a-z]+")
+def tokenize(text):
+    return re.findall(r"[a-z]+", text.lower())
 
-def tokenize(line, *, min_len=1, stopwords=None):
-    if stopwords is None:
-        stopwords = set()
+def counts(token):
+    count = {}
+    for w in token:
+        count[w] = count.get(w, 0) + 1
+    return count
 
-    tokens = WORD_RE.findall(line.lower())
-    return [
-        t for t in tokens
-        if len(t) >= min_len and t not in stopwords
-    ]
+def top_items(count, n):
+    pairs_sorted = sorted(count.items(), key=lambda item:item[1], reverse=True)
+    return pairs_sorted[:n]
 
-def update_counts(counts, tokens):
-    for t in tokens:
-        counts[t] = counts.get(t, 0) + 1
-
-def write_csv(counts, outpath, top_n=None):
-    items = sorted(
-        counts.items(),
-        key=lambda x: (-x[1], x[0])
-    )
-
-    if top_n is not None:
-        items = items[:top_n]
-
+def csvWriter(rows, outpath):
     with open(outpath, "w", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
         writer.writerow(["word", "count"])
-        writer.writerow(items)
+        for word, count in rows:
+            writer.writerow([word, count])
+
+def main():
+    inpath = "sample.txt"
+    outpath = "topwords.csv"
+    n = 20
+
+    with open(inpath, "r", encoding="utf-8") as f:
+        token = []
+        for line in f:
+            token.extend(tokenize(line))
+    
+    count = counts(token)
+    rows = top_items(count, n)
+    csvWriter(rows, outpath)
 
     
