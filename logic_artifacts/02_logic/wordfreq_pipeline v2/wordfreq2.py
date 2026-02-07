@@ -107,3 +107,100 @@ def main():
     csvWriter(rows, outpath)
 
     print(f"Printed top {n} words to {outpath}")
+
+#mutation 2
+import re
+import csv
+
+def tokenize(text):
+    return re.findall(r"[a-z]+", text.lower())
+
+def top_items(count, n):
+    pairs_sorted = sorted(count.items(), key=lambda item:item[1], reverse=True)
+    return pairs_sorted[:n]
+
+def csvWriter(rows, outpath):
+    with open(outpath, "w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        writer.writerow(["word", "count"])
+        for word, count in rows:
+            writer.writerow([word, count])
+
+def main():
+    inpath = "sample.txt"
+    outpath = "topwords.csv"
+    n = 20
+
+    count = {}
+    with open(inpath, "r", encoding="utf-8") as f:
+        for line in f:
+            for w in tokenize(line):
+                count[w] = count.get(w, 0) + 1
+    
+    rows = top_items(count, n)
+    csvWriter(rows, outpath)
+
+    print(f"Printed top {n} words to {outpath}")
+
+#mutation 2 line length 
+import csv
+
+def top_items(count, n):
+    pairs_sorted = sorted(count.items(), key=lambda item: item[1], reverse=True)
+    return pairs_sorted[:n]
+
+def csvWriter(rows, outpath):
+    with open(outpath, "w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        writer.writerow(["length", "lines_with_that_length"])
+        for length, freq in rows:
+            writer.writerow([length, freq])
+
+def main():
+    inpath = "sample.txt"
+    outpath = "line_lengths.csv"
+    n = 20
+
+    count = {}
+    with open(inpath, "r", encoding="utf-8") as f:
+        for line in f:
+            L = len(line)
+            count[L] = count.get(L, 0) + 1
+
+    rows = top_items(count, n)
+    csvWriter(rows, outpath)
+    print(f"Printed top {n} lengths to {outpath}")
+
+#mutation 2 first letter of words
+import re
+import csv
+
+def tokenize(text):
+    return re.findall(r"[a-z]+", text.lower())
+
+def top_items(count, n):
+    pairs_sorted = sorted(count.items(), key=lambda item: item[1], reverse=True)
+    return pairs_sorted[:n]
+
+def csvWriter(rows, outpath):
+    with open(outpath, "w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        writer.writerow(["first_letter", "count"])
+        for letter, c in rows:
+            writer.writerow([letter, c])
+
+def main():
+    inpath = "sample.txt"
+    outpath = "first_letters.csv"
+    n = 20
+
+    count = {}
+    with open(inpath, "r", encoding="utf-8") as f:
+        for line in f:
+            for w in tokenize(line):
+                first = w[0]
+                count[first] = count.get(first, 0) + 1
+
+    rows = top_items(count, n)
+    csvWriter(rows, outpath)
+    print(f"Printed top {n} first letters to {outpath}")
