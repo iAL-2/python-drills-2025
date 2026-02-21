@@ -111,6 +111,7 @@ def main():
 #mutation 2
 import re
 import csv
+from paths import DATA_DIR
 
 def tokenize(text):
     return re.findall(r"[a-z]+", text.lower())
@@ -127,8 +128,8 @@ def csvWriter(rows, outpath):
             writer.writerow([word, count])
 
 def main():
-    inpath = "sample.txt"
-    outpath = "topwords.csv"
+    inpath = DATA_DIR / "sample.txt"
+    outpath = DATA_DIR / "topwords.csv"
     n = 20
 
     count = {}
@@ -136,7 +137,7 @@ def main():
         for line in f:
             for w in tokenize(line):
                 count[w] = count.get(w, 0) + 1
-    
+
     rows = top_items(count, n)
     csvWriter(rows, outpath)
 
